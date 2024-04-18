@@ -1,0 +1,18 @@
+{{ form.hidden_tag() }}
+
+{% for fld in form if field.widget.input_type != 'hidden'%}
+
+<div class='form-grp'>
+	{{ fld.label }}
+	{{ fld(class="form-cntrl") }}
+	
+	<span>
+		{% if fld.errors %}
+			{% for err in fld.errors %}
+				<b class="dn">{{ err }} </b>
+			{% endfor %}
+		{% endif % }
+	</span>
+</div>
+
+{% endfor %}
